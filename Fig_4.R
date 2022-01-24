@@ -4,6 +4,10 @@
 #1.Phylogenetic sampling theory
 library(picante)
 #(1)Generating data
+Merge_func <- function(x,y){
+  df <- merge(x,y,by='OTU',all.x = T,all.y = T)
+  return(df)
+}
 all_differ <- Reduce(Merge_func,list(
   data.frame(OTU = c(gin_two_up,gin_three_up,gin_four_up,
                      qui_two_up,qui_three_up,qui_four_up,
@@ -59,7 +63,7 @@ my_rarefy_mean <- function(gin_two_up,gin_two_down,gin_two_nosig,gin_two_all,
                    length(qui_four_up),length(qui_four_down),length(qui_four_nosig),length(qui_four_all),
                    length(not_two_up),length(not_two_down),length(not_two_nosig),length(not_two_all),
                    length(not_three_up),length(not_three_down),length(not_three_nosig),length(not_three_all),
-                   length(not_four_up),length(not_four_down),length(not_four_nosig),length(not_four_all)))#取最小值
+                   length(not_four_up),length(not_four_down),length(not_four_nosig),length(not_four_all)))#脠隆脳卯脨隆脰碌
   
   uuf_result <- array(NA,dim = c(36,36,rand))
   for(i in 1:rand){
